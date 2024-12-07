@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #fef9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #f790a1;
+  }
+  
+  .envelope {
+    position: relative;
+    width: 200px;
+    height: 150px;
+    cursor: pointer;
+    perspective: 1000px;
+    transition: all 0.5s ease-in-out;
+  }
+  
+  .envelope-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ffc0cb;
+    border: 2px solid #ff99aa;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+    z-index: 2;
+  }
+  
+  .heart {
+    position: relative;
+    width: 100px;
+    height: 90px;
+    margin-top: 10px;
+  }
+  
+  .heart::before, .heart::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 52px;
+    height: 80px;
+    border-radius: 50px 50px 0 0;
+    background: #ff99aa;
+  }
+  
+  .heart::before {
+    left: 50px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+  }
+  
+  .heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+  }
+  
+  .envelope-open {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ff99aa;
+    border-radius: 10px;
+    border: 2px solid #ff99aa;
+    transform: rotateX(90deg);
+    transform-origin: top;
+    transition: transform 0.8s ease-in-out;
+    z-index: 1;
+  }
+  
+  .letter {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    width: 180px;
+    height: 100px;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .letter p {
+    color: #333;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .envelope.open .envelope-front {
+    transform: rotateX(-180deg);
+  }
+  
+  .envelope.open .envelope-open {
+    transform: rotateX(0deg);
+  }
+  
+  .envelope.open .letter {
+    opacity: 1;
+  }
+  
